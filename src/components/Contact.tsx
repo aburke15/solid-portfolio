@@ -10,8 +10,8 @@ const Contact: Component = () => {
       <div class="container text-center">
         <div class="row contact-margin contact-top-row">
           <h5>
-            <a class="contact-email" href="mailto:aburke.dev@gmail.com" rel="noopener" target="_top">
-              <i class="bi bi-envelope"></i> aburke.dev@gmail.com
+            <a class="contact-email" href="mailto:sail-dews0u@icloud.com" rel="noopener" target="_top">
+              <i class="bi bi-envelope"></i> sail-dews0u@icloud.com
             </a>
           </h5>
         </div>
