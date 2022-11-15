@@ -50,7 +50,7 @@ const Projects: Component = () => {
 
 export default Projects;
 
-export const getMockProjects = () => {
+const getMockProjects = () => {
   const projects: GitHubProject[] = [];
 
   for (let index = 0; index < 20; index++) {
@@ -66,7 +66,7 @@ export const getMockProjects = () => {
   return projects;
 };
 
-export interface GitHubProject {
+interface GitHubProject {
   name: string;
   createdAt: string;
   description: string;
