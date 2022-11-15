@@ -12,7 +12,8 @@ import Contact from './components/Contact';
 
 const App: Component = () => {
   createEffect(() => {
-    import('/node_modules/bootstrap/dist/css/bootstrap.min.css');
+    import('../node_modules/bootstrap/dist/js/bootstrap.min.js' as any);
+    import('../node_modules/bootstrap/dist/css/bootstrap.min.css' as any);
   });
 
   return (
