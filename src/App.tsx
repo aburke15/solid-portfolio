@@ -1,25 +1,29 @@
-import type { Component } from 'solid-js';
+import { Component, createEffect } from 'solid-js';
 
-import logo from './logo.svg';
-import styles from './App.module.css';
+import './styles/portfolio.css';
+
+import Navbar from './components/Navbar';
+import Title from './components/Title';
+import Bio from './components/Bio';
+import Skills from './components/Skills';
+import Resume from './components/Resume';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 const App: Component = () => {
+  createEffect(() => {
+    import('/node_modules/bootstrap/dist/css/bootstrap.min.css');
+  });
+
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+    <div class="portfolio-font">
+      <Navbar />
+      <Title />
+      <Bio />
+      <Skills />
+      <Resume />
+      <Projects />
+      <Contact />
     </div>
   );
 };
