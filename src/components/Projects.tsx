@@ -3,8 +3,7 @@ import { Component, createSignal, For } from 'solid-js';
 import Loading from './Loading';
 
 const Projects: Component = () => {
-  const [projects, setProjects] = createSignal<GitHubProject[]>([]);
-  setProjects((projects) => (projects = getMockProjects()));
+  const [projects] = createSignal<GitHubProject[]>(getMockProjects());
 
   return (
     <div id="projects" class="projects-section global-padding">
