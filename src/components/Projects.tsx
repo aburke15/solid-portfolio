@@ -1,9 +1,15 @@
-import { Component, createSignal, For } from 'solid-js';
+import { Component, createEffect, createSignal, For } from 'solid-js';
 
 import Loading from './Loading';
 
 const Projects: Component = () => {
-  const [projects] = createSignal<GitHubProject[]>(getMockProjects());
+  const [projects, setProjects] = createSignal<GitHubProject[]>([]);
+
+  createEffect(async () => {
+    const response = await fetch('https://api.aburke.tech/projects');
+    const data = await response.json();
+    setProjects(data);
+  });
 
   return (
     <div id="projects" class="projects-section global-padding">
@@ -19,13 +25,26 @@ const Projects: Component = () => {
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">Description</th>
-                  <th scope="col">Project Link</th>
+                  <th scope="col">Link</th>
                   <th scope="col">Created At</th>
                   <th scope="col">Language</th>
                 </tr>
               </thead>
               <tbody>
-                <For each={projects()} fallback={<Loading />}>
+                <For
+                  each={projects()}
+                  fallback={
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td>
+                        <Loading />
+                      </td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  }
+                >
                   {(project) => (
                     <tr>
                       <td>{project.name}</td>
